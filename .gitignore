@@ -1,0 +1,7 @@
+# 元画像ファイル（webpに変換済み）
+images/*.jpg
+images/*.JPG
+images/*.png
+images/*.pdf
+.DS_Store
+.claude/
