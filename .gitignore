@@ -2,6 +2,7 @@
 images/*.jpg
 images/*.JPG
 images/*.png
+!images/main.png
 images/*.pdf
 .DS_Store
 .claude/
