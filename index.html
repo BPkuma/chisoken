@@ -108,77 +108,61 @@
         #hero {
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             position: relative;
             overflow: hidden;
         }
         .hero-photo {
             position: absolute;
             inset: 0;
-            background-image: url('images/main.png');
+            background-image: url('images/main.webp');
             background-size: cover;
             background-position: center top;
         }
         .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, rgba(2,132,199,0.72) 0%, rgba(14,165,233,0.45) 50%, rgba(0,0,0,0.18) 100%);
+            display: none;
         }
         .hero-body {
             position: relative;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 120px 24px 80px;
             width: 100%;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255,255,255,0.22);
-            border: 1px solid rgba(255,255,255,0.45);
-            color: var(--white);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.18em;
-            padding: 6px 16px;
-            border-radius: 24px;
-            margin-bottom: 28px;
-        }
-        .hero-badge::before {
-            content: '';
-            width: 6px; height: 6px;
-            background: var(--green);
-            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            padding: 12vh 24px 0;
         }
         .hero-title {
             font-size: clamp(32px, 5.5vw, 58px);
-            color: var(--white);
             font-weight: 900;
-            line-height: 1.4;
-            margin-bottom: 24px;
+            line-height: 1.65;
+            margin-bottom: 28px;
             letter-spacing: 0.03em;
-            text-shadow: 0 2px 16px rgba(0,0,0,0.18);
         }
-        .hero-title em {
+        /* ハイライトスイープ */
+        .hl {
+            display: inline;
+            background: white no-repeat left center / 0% 88%;
+            color: var(--sky-dark);
+            padding: 2px 10px;
+            animation: hlSweep 0.65s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+            animation-delay: var(--delay, 0.3s);
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            border-radius: 3px;
+        }
+        .hl em {
             font-style: normal;
-            background: linear-gradient(90deg, #fff 0%, #bfecff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: inherit;
+            background: none;
+            -webkit-text-fill-color: inherit;
+            background-clip: unset;
+            -webkit-background-clip: unset;
         }
-        .hero-lead {
-            font-size: clamp(14px, 1.8vw, 16px);
-            color: rgba(255,255,255,0.88);
-            max-width: 480px;
-            margin-bottom: 44px;
-            line-height: 2;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        @keyframes hlSweep {
+            from { background-size: 0% 88%; }
+            to   { background-size: 100% 88%; }
         }
-        .hero-btns {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
         .hero-btn {
             display: inline-block;
@@ -495,18 +479,9 @@
     <div class="hero-photo"></div>
     <div class="hero-overlay"></div>
     <div class="hero-body">
-        <div class="hero-badge">CHISOKEN Co., Ltd. — Ichinoseki, Iwate</div>
         <h1 class="hero-title">
-            地域の大地を、<br><em>確かな技術</em>で支える。
+            <span class="hl" style="--delay: 0.3s">地域のインフラを確かな技術で支える。</span>
         </h1>
-        <p class="hero-lead">
-            岩手県一関市を拠点に、土木・舗装・解体工事を通じて<br>
-            地域のインフラ整備を支えています。
-        </p>
-        <div class="hero-btns">
-            <a href="#services" class="hero-btn">事業内容を見る</a>
-            <a href="#contact" class="hero-btn hero-btn-outline">お問い合わせ</a>
-        </div>
     </div>
 </section>
 
